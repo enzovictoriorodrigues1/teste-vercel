@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta name="viewport" content="width=1280, initial-scale=1">
+    <meta name="viewport" content="width=1280, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
     <style>
         @font-face {
             font-family: 'sourcesanspro';
@@ -11,16 +12,17 @@
             src: url(https://design.penpot.app/fonts/sourcesanspro-regular.woff) format('woff');
         }
 
-        /* Força o HTML e o Body a terem no mínimo a largura do seu design */
         html, body {
             margin: 0;
             padding: 0;
+            /* Força a largura ser maior que a tela do celular */
             width: 1280px; 
             min-width: 1280px;
-            min-height: 100vh;
+            height: 100%;
             background-color: #f0f0f0;
-            /* Garante que o scroll lateral apareça se a tela for menor que 1280px */
-            overflow-x: auto; 
+            /* Força o scroll horizontal aparecer */
+            overflow-x: scroll !important; 
+            -webkit-overflow-scrolling: touch;
         }
 
         .desktop-d9bf5e2f4b53 {
@@ -30,15 +32,15 @@
             background: #FFFFFF;
         }
 
-        /* Imagem Gigante Centralizada */
         .image-dd88fa443c74 {
             position: absolute;
             left: 50%;
             transform: translateX(-50%); 
             top: 85px;
             
-            width: 1000px; /* Aumentei para garantir que passe da tela do mobile */
-            height: 800px;
+            /* Imagem realmente gigante agora */
+            width: 1100px; 
+            height: 900px;
             
             background-color: #ccc;
             background-image: url('./oshawott.png');
@@ -71,24 +73,24 @@
             color: #34b45a;
             font-family: "sourcesanspro";
             font-size: 22px;
-            white-space: nowrap; /* Impede o texto de quebrar linha */
         }
     </style>
 </head>
 <body>
-    <div class="desktop-d9bf5e2f4b53">
-        <div class="image-dd88fa443c74"></div>
+    
+    <div class="frame desktop-d9bf5e2f4b53">
+        <div class="shape rect image-dd88fa443c74"></div>
         
-        <div class="group-ddbb11f78293" id="botaoMobile">
-            <div class="rectangle-ddbacd4b3fba"></div>
-            <div class="ir-para-a-ddbadc131169">Ir para a tela mobile</div>
+        <div class="frame group-ddbb11f78293" id="botaoMobile">
+            <div class="shape rect rectangle-ddbacd4b3fba"></div>
+            <div class="shape text ir-para-a-ddbadc131169">Ir para a tela mobile</div>
         </div>
     </div>
 
     <script>
-        document.getElementById('botaoMobile').onclick = function() {
+        document.getElementById('botaoMobile').addEventListener("click", function() {
             window.location.href = 'tela-mobile.html';
-        };
+        });
     </script>
 </body>
 </html>
