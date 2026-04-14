@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <meta name="viewport" content="width=1280">
+    <meta name="viewport" content="width=1280, initial-scale=1">
     <style>
         @font-face {
             font-family: 'sourcesanspro';
@@ -11,34 +11,34 @@
             src: url(https://design.penpot.app/fonts/sourcesanspro-regular.woff) format('woff');
         }
 
+        /* Força o HTML e o Body a terem no mínimo a largura do seu design */
         html, body {
             margin: 0;
             padding: 0;
-            /* 2. Forçamos o body a ter a largura do seu design */
             width: 1280px; 
+            min-width: 1280px;
             min-height: 100vh;
-            /* 3. Permitimos o scroll lateral explicitamente */
-            overflow-x: auto; 
             background-color: #f0f0f0;
+            /* Garante que o scroll lateral apareça se a tela for menor que 1280px */
+            overflow-x: auto; 
         }
 
         .desktop-d9bf5e2f4b53 {
             position: relative;
-            width: 1280px;      /* Largura travada */
+            width: 1280px;
             height: 800px;
             background: #FFFFFF;
-            overflow: visible; /* Garante que nada seja cortado internamente */
         }
 
+        /* Imagem Gigante Centralizada */
         .image-dd88fa443c74 {
             position: absolute;
             left: 50%;
             transform: translateX(-50%); 
             top: 85px;
             
-            /* Imagem Gigante */
-            width: 800px; 
-            height: 656px;
+            width: 1000px; /* Aumentei para garantir que passe da tela do mobile */
+            height: 800px;
             
             background-color: #ccc;
             background-image: url('./oshawott.png');
@@ -47,7 +47,6 @@
             background-position: center;
         }
 
-        /* O botão fica fixo na posição do design original */
         .group-ddbb11f78293 {
             position: absolute;
             left: 62px;
@@ -72,24 +71,24 @@
             color: #34b45a;
             font-family: "sourcesanspro";
             font-size: 22px;
+            white-space: nowrap; /* Impede o texto de quebrar linha */
         }
     </style>
 </head>
 <body>
-    
-    <div class="frame desktop-d9bf5e2f4b53">
-        <div class="shape rect image-dd88fa443c74"></div>
+    <div class="desktop-d9bf5e2f4b53">
+        <div class="image-dd88fa443c74"></div>
         
-        <div class="frame group-ddbb11f78293" id="botaoMobile">
-            <div class="shape rect rectangle-ddbacd4b3fba"></div>
-            <div class="shape text ir-para-a-ddbadc131169">Ir para a tela mobile</div>
+        <div class="group-ddbb11f78293" id="botaoMobile">
+            <div class="rectangle-ddbacd4b3fba"></div>
+            <div class="ir-para-a-ddbadc131169">Ir para a tela mobile</div>
         </div>
     </div>
 
     <script>
-        document.getElementById('botaoMobile').addEventListener("click", function() {
+        document.getElementById('botaoMobile').onclick = function() {
             window.location.href = 'tela-mobile.html';
-        });
+        };
     </script>
 </body>
 </html>
