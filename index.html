@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=1280">
     <style>
         @font-face {
             font-family: 'sourcesanspro';
@@ -14,48 +14,40 @@
         html, body {
             margin: 0;
             padding: 0;
-            width: 100%;
-            /* 2. Importante: Remova o 100vw para permitir que o conteúdo transborde livremente */
+            /* 2. Forçamos o body a ter a largura do seu design */
+            width: 1280px; 
             min-height: 100vh;
+            /* 3. Permitimos o scroll lateral explicitamente */
+            overflow-x: auto; 
+            background-color: #f0f0f0;
         }
 
-        body {
-            /* 3. Garantir que o scroll lateral funcione */
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            background-color: #f0f0f0; /* cor de fundo apenas para teste */
-        }
-
-        /* Container do Desktop */
         .desktop-d9bf5e2f4b53 {
             position: relative;
             width: 1280px;      /* Largura travada */
-            min-width: 1280px;  /* Impede que o container encolha */
-            min-height: 800px;
+            height: 800px;
             background: #FFFFFF;
-            margin: 0 auto;     /* Centraliza o "quadro" de 1280px se a tela for maior */
-            overflow: visible;
+            overflow: visible; /* Garante que nada seja cortado internamente */
         }
 
-        /* Ajuste da Imagem Central */
         .image-dd88fa443c74 {
             position: absolute;
-            /* 4. Vamos colocar a imagem bem no centro dos 1280px */
             left: 50%;
             transform: translateX(-50%); 
             top: 85px;
             
-            /* 5. Aumente aqui se quiser que ela seja realmente gigante */
+            /* Imagem Gigante */
             width: 800px; 
             height: 656px;
             
-            background-color: #ccc; /* cinza caso a imagem não carregue */
+            background-color: #ccc;
             background-image: url('./oshawott.png');
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-        } /* <--- FECHAMENTO DA CHAVE QUE FALTAVA */
+        }
 
+        /* O botão fica fixo na posição do design original */
         .group-ddbb11f78293 {
             position: absolute;
             left: 62px;
@@ -63,6 +55,7 @@
             width: 216px;
             height: 64px;
             z-index: 10;
+            cursor: pointer;
         }
 
         .rectangle-ddbacd4b3fba {
@@ -94,9 +87,7 @@
     </div>
 
     <script>
-        const botaoMobile = document.getElementById('botaoMobile');
-        botaoMobile.style.cursor = 'pointer';
-        botaoMobile.addEventListener("click", function() {
+        document.getElementById('botaoMobile').addEventListener("click", function() {
             window.location.href = 'tela-mobile.html';
         });
     </script>
